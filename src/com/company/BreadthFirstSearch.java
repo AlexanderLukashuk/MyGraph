@@ -3,20 +3,20 @@ package com.company;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BreadthFirstSearch<Vertex> extends Search<Vertex>{
+public class BreadthFirstSearch<V> extends Search<V>{
 
-    public BreadthFirstSearch(MyGraph<Vertex> graph, Vertex source) {
+    public BreadthFirstSearch(MyGraph<Vertex<V>> graph, Vertex<V> source) {
         super(source);
         bfs(graph, source);
     }
 
-    private void bfs(MyGraph<Vertex> graph, Vertex current) {
+    private void bfs(MyGraph<Vertex<V>> graph, Vertex<V> current) {
         marked.add(current);
-        Queue<Vertex> queue = new LinkedList<>();
+        Queue<Vertex<V>> queue = new LinkedList<>();
         queue.add(current);
         while (!queue.isEmpty()) {
-            Vertex v = queue.remove();
-            for (Vertex vertex : graph.adjacencyList(v)) {
+            Vertex<V> v = queue.remove();
+            for (Vertex<V> vertex : graph.adjacencyList(v)) {
                 if (!marked.contains(vertex)) {
                     marked.add(vertex);
                     edgeTo.put(vertex, v);

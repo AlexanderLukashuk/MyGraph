@@ -7,8 +7,8 @@ public class DijkstraSearch<V> extends Search<V> {
     private Map<Vertex<V>, Double> distances;
     private WeightedGraph<V> graph;
 
-    public DijkstraSearch(WeightedGraph<V> graph, Vertex<V> source) {
-        super(source);
+    public DijkstraSearch(WeightedGraph<V> graph, V source) {
+        super((Vertex<V>) source);
         unsettledNodes = new HashSet<>();
         distances = new HashMap<>();
         this.graph = graph;
