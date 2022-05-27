@@ -1,9 +1,6 @@
 package com.company;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Vertex<V> {
     private V data;
@@ -30,4 +27,15 @@ public class Vertex<V> {
         return data.equals(vertex.data);
     }
 
+    public int size() {
+        return adjacentVertices.size();
+    }
+
+    public boolean contains(Vertex<V> vertexEdge) {
+        return adjacentVertices.containsKey(vertexEdge);
+    }
+
+    public Set<Vertex<V>> getAdjacentVertices() {
+        return adjacentVertices.keySet();
+    }
 }
