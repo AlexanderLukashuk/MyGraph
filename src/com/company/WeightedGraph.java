@@ -25,7 +25,7 @@ public class WeightedGraph<V> {
         if (!hasVertex((Vertex) dest))
             addVertex(dest);
 
-        if (hasEdge((Vertex) source, (Vertex) dest)
+        if (hasEdge(source, dest)
                 || source.equals(dest))
             return; // reject parallels & self-loops
 
@@ -76,6 +76,6 @@ public class WeightedGraph<V> {
 
     public Iterable<Edge<V>> getEdges(V v) {
         if (!hasVertex((Vertex) v)) return null;
-        return map.get(v).getAdjacentVertices();
+        return map.get(v).getAdjacentVertices(); // hz как исправить
     }
 }
